@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .div-container{
+            
+            min-width: 340px;
+            max-width: 430px;
+            background: blue;
+            color: white;
+        }
+        img{
+        width: 100%;
+        height: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="div-container">
+        
+        
+        <img src="images/img1.jpg" alt="">
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> -->
+    <script>
+        console.log("hello");
+        function call() {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '37bd5224dfmsh60f40e9dc469972p10249ajsnbf93d76f030d',
+      'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+    }
+  };
+
+  fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+}
+
+call();
+
+    </script>
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Document</title>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row v-center">
+                <div class="header-item item-left">
+                    <div class="logo">
+                        <a href="">MyStore</a>
+                    </div>
+                </div>
+                <div class="header-item item-center">
+                    <div class="menu">
+                        <ul class="menu-main">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">News</a></li>
+                            <li class="menu-item-has-children"><a href="">Shop <i class="fa fa-angle-down"
+                                        aria-hidden="true"></i></a>
+                                <div class="sub-menu mega-menu mega-menu-column-4">
+                                    <div class="list-item">
+                                        <h4 class="title">men's fashion</h4>
+                                    </div>
+                                    <div class="list-item">
+                                        <h4 class="title">women's fashion</h4>
+                                    </div>
+                                    <div class="list-item">
+                                        <h4 class="title">home, kitchen</h4>
+                                    </div>
+                                    <div class="list-item"><img src="./images/img1.jpg" alt="nature" /></div>
+                                </div>
+                            </li>
+                            <li class="menu-item-has-children"><a href="">Blog <i class="fa fa-angle-down"
+                                        aria-hidden="true"></i></a>
+                                <div class="sub-menu single-column-menu">
+                                    <ul>
+                                        <li><a>Standard Layout Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam exercitationem pariatur explicabo dignissimos dolore, eius nesciunt, ab hic, odio eveniet totam possimus cumque! In animi asperiores veniam quidem quis velit!</a></li>
+                                        <li><a>Grid Layout</a></li>
+                                        <li><a>Single Position Layout</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item-has-children"><a href="">Pages <i class="fa fa-angle-down"
+                                        aria-hidden="true"></i></a>
+                                <div class="sub-menu single-column-menu">
+                                    <ul>
+                                        <li><a>Register</a></li>
+                                        <li><a>Login</a></li>
+                                        <li><a>logout</a></li>
+                                        <li><a>FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header-item item-right">
+                    <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-heart" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner-section"></div>
+    <script>
+        
+        const rootElement = document.documentElement.scrollHeight;
+        console.log('root', rootElement);
+        const firstTier = rootElement.childNodes;
+        console.log('first', firstTier);
+
+
+// firstTier is a NodeList of the direct children of the root element
+// such as <head> and <body>
+
+for (const child of firstTier) {
+  // do something with each direct child of the root element
+}
+        
+        
+    </script>
+</body>
+
+</html> -->
